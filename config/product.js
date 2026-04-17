@@ -39,5 +39,5 @@ const PRODUCT = {
   // ── Google Apps Script endpoint ────────────────────────────
   // Replace with your own Google Sheets webhook URL
   googleScriptURL:
-    "https://script.google.com/macros/s/AKfycbxtyNIDRSX3KF0sk-4bf3RAbgld2PKVsoCVicmBHmShXNsbwZUqaKAfthCWSwmc0W6Z/exec",
+    "https://script.google.com/macros/s/AKfycbyMD0DZZgNhZqax35nPd1Bz6TAamoeDJ4bZczzWHCsUTW6oFgDe8Ox8eZEIqvZmJJk6RQ/exec",
 };
