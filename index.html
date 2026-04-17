@@ -1,0 +1,274 @@
+<!Doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Market Store DZ</title>
+    <meta
+      name="description"
+      content="صفحة منتج احترافية للمتسوقين الجزائريين."
+    />
+    <meta property="og:title" content="صفحة المنتج" />
+    <meta
+      property="og:description"
+      content="منتجات جزائرية بجودة عالية مع ضمان ودفع عند الاستلام"
+    />
+    <meta property="og:type" content="website" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="media_market_logo.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Facebook Pixel Base Code
+         Replace YOUR_PIXEL_ID with your actual Pixel ID
+         ═══════════════════════════════════════════════════════════ -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      // ── Replace with your Pixel ID ──────────────────────────────
+      fbq('init', '1638224890653574');
+
+      // ── PageView: fires on every page load ──────────────────────
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1638224890653574&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Base Code -->
+  </head>
+  <body>
+    <nav class="navbar" id="navbar"></nav>
+    <div class="hero-banner" id="hero-banner"></div>
+    <div class="container">
+      <div class="product-card">
+        <div class="product-image-wrap">
+          <div
+            id="product-images-container"
+            class="images-scroll-container"
+          ></div>
+          <div id="carousel-dots" class="carousel-dots"></div>
+          <span id="product-badge" class="product-badge"></span>
+        </div>
+        <div class="product-info">
+          <p id="product-category" class="product-category"></p>
+          <h1 id="product-title" class="product-title"></h1>
+          <div class="rating-row">
+            <span id="stars" class="stars"></span>
+            <span id="rating-count" class="rating-count"></span>
+          </div>
+          <div class="price-row">
+            <span id="price-main" class="price-main"></span>
+            <span id="price-currency" class="price-currency"></span>
+            <span id="price-old" class="price-old"></span>
+            <span id="price-saving" class="price-saving"></span>
+          </div>
+          <p id="product-desc" class="product-desc"></p>
+          <div id="features" class="features"></div>
+        </div>
+        <hr class="section-divider" />
+        <div class="order-form">
+          <p class="form-section-title">معلومات التوصيل</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name"
+                >الاسم واللقب <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="name"
+                placeholder="مثال: محمد بن علي"
+                autocomplete="name"
+              />
+              <span class="field-error" id="name-err"
+                >يرجى إدخال اسمك الكامل</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="phone"
+                >رقم الهاتف <span class="required">*</span></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                placeholder="05XX XX XX XX"
+                autocomplete="tel"
+                inputmode="numeric"
+                maxlength="10"
+              />
+              <span class="field-error" id="phone-err"
+                >رقم الهاتف غير صحيح</span
+              >
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="wilaya"
+                >الولاية <span class="required">*</span></label
+              >
+              <select id="wilaya"></select>
+              <span class="field-error" id="wilaya-err"
+                >يرجى اختيار الولاية</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="commune"
+                >البلدية <span class="required">*</span></label
+              >
+              <select id="commune" disabled>
+                <option value="" disabled selected>اختر الولاية أولاً</option>
+              </select>
+              <span class="field-error" id="commune-err"
+                >يرجى اختيار البلدية</span
+              >
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 14px">
+            <label for="quantity">الكمية</label>
+            <div class="qty-wrap">
+              <button
+                type="button"
+                class="qty-btn"
+                id="qty-minus"
+                onclick="changeQty(-1)"
+              >
+                −
+              </button>
+              <input
+                type="number"
+                id="quantity"
+                class="qty-input"
+                value="1"
+                min="1"
+                max="99"
+                readonly
+              />
+              <button
+                type="button"
+                class="qty-btn"
+                id="qty-plus"
+                onclick="changeQty(1)"
+              >
+                +
+              </button>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 6px">
+            <label>طريقة التوصيل <span class="required">*</span></label>
+            <div class="delivery-options">
+              <label class="delivery-option">
+                <input
+                  type="radio"
+                  name="deliveryType"
+                  value="1"
+                  id="del-bureau"
+                />
+                <span class="delivery-label">
+                  <span class="del-icon">🏪</span>
+                  توصيل للمكتب
+                  <span class="del-cost" id="cost-bureau">—</span>
+                </span>
+              </label>
+              <label class="delivery-option">
+                <input
+                  type="radio"
+                  name="deliveryType"
+                  value="2"
+                  id="del-home"
+                />
+                <span class="delivery-label">
+                  <span class="del-icon">🏠</span>
+                  توصيل للمنزل
+                  <span class="del-cost" id="cost-home">—</span>
+                </span>
+              </label>
+            </div>
+            <span class="field-error" id="delivery-err"
+              >يرجى اختيار طريقة التوصيل</span
+            >
+          </div>
+          <div class="order-summary">
+            <p class="summary-title">ملخص الطلب</p>
+            <div class="summary-row">
+              <span>سعر المنتج</span
+              ><span class="val" id="calc-product">—</span>
+            </div>
+            <div class="summary-row">
+              <span>الكمية</span><span class="val" id="calc-qty">× 1</span>
+            </div>
+            <div class="summary-row">
+              <span>رسوم التوصيل</span
+              ><span class="val" id="calc-delivery">اختر الولاية</span>
+            </div>
+            <div class="summary-row total">
+              <span>المجموع الإجمالي</span
+              ><span class="val" id="calc-total">—</span>
+            </div>
+          </div>
+          <button class="submit-btn" id="submit-btn" onclick="submitForm()">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              width="20"
+              height="20"
+            >
+              <path d="M20 12V22H4V12" />
+              <path d="M22 7H2v5h20V7z" />
+              <path d="M12 22V7" />
+            </svg>
+            أتمم الطلب الآن
+          </button>
+          <div id="trust-strip" class="trust-strip"></div>
+        </div>
+      </div>
+    </div>
+    <div class="success-overlay" id="success-overlay">
+      <div class="success-card">
+        <div class="success-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            width="32"
+            height="32"
+          >
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+        <h2 class="success-title">تم تسجيل طلبك بنجاح! 🎉</h2>
+        <p class="success-msg">
+          شكراً لك على ثقتك بنا.<br />سيتصل بك أحد موظفينا قريباً لتأكيد الطلب
+          والتنسيق معك.
+        </p>
+        <button class="success-close" onclick="closeSuccess()">
+          حسناً، شكراً
+        </button>
+      </div>
+    </div>
+
+    <!-- Signature -->
+    <div class="footer-signature">
+      Made with <span style="color: red">❤</span> by
+      <span class="brand-name">Elfamila</span>
+    </div>
+
+    <script src="config/product.js"></script>
+    <script src="config/store.js"></script>
+    <script src="config/wilayas.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/form.js"></script>
+  </body>
+</html>
