@@ -18,12 +18,12 @@
       href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="media_market_logo.jpg" type="image/jpeg" />
+    <link rel="icon" href="logo_eulma.jpg" type="image/jpeg" />
     <link rel="stylesheet" href="css/styles.css" />
 
+    <script src="config/product.js"></script>
     <!-- ═══════════════════════════════════════════════════════════
          Facebook Pixel Base Code
-         Replace YOUR_PIXEL_ID with your actual Pixel ID
          ═══════════════════════════════════════════════════════════ -->
     <script>
       !function(f,b,e,v,n,t,s)
@@ -35,16 +35,24 @@
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
 
-      // ── Replace with your Pixel ID ──────────────────────────────
-      fbq('init', '1638224890653574');
-
-      // ── PageView: fires on every page load ──────────────────────
-      fbq('track', 'PageView');
+      // ── Initializes only if a valid ID is provided in config/product.js ──
+      const PIXEL_ID = typeof PRODUCT !== 'undefined' ? PRODUCT.facebookPixelId : null;
+      
+      if (PIXEL_ID && PIXEL_ID !== "YOUR_PIXEL_ID_HERE") {
+        fbq('init', PIXEL_ID);
+        fbq('track', 'PageView');
+      }
     </script>
     <noscript>
-      <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=1638224890653574&ev=PageView&noscript=1"/>
+      <div id="pixel-noscript"></div>
     </noscript>
+    <script>
+      // Dynamically add noscript image if ID is valid
+      if (typeof PIXEL_ID !== 'undefined' && PIXEL_ID && PIXEL_ID !== "YOUR_PIXEL_ID_HERE") {
+        document.getElementById('pixel-noscript').innerHTML = 
+          `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1"/>`;
+      }
+    </script>
     <!-- End Facebook Pixel Base Code -->
   </head>
   <body>
@@ -132,6 +140,10 @@
                 >يرجى اختيار البلدية</span
               >
             </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 20px">
+            <label>اختر العرض المناسب</label>
+            <div id="offers-container" class="offers-grid"></div>
           </div>
           <div class="form-group" style="margin-bottom: 14px">
             <label for="quantity">الكمية</label>
@@ -234,6 +246,102 @@
         </div>
       </div>
     </div>
+  <!-- ═══ PRODUCT GALLERY ═══ -->
+    <section class="gallery-section" aria-labelledby="gallery-heading">
+      <div class="gallery-card">
+        <div class="gallery-header">
+          
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-img-wrap">
+            <img src="product2.png" alt="صورة المنتج 1" loading="lazy" />
+          </div>
+          <div class="gallery-img-wrap">
+            <img src="product_eulma.jpg" alt="صورة المنتج 2" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+   <!-- ═══ WHY CHOOSE US ═══ -->
+<section class="why-choose-section" aria-labelledby="why-heading">
+  <style>
+    .wcu-section { padding: 2.5rem 0; }
+    .wcu-header { text-align: center; margin-bottom: 2rem; }
+    .wcu-header h2 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 0.5rem; }
+    .wcu-header p { font-size: 15px; color: var(--color-text-secondary); margin: 0; }
+    .wcu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+    .wcu-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; }
+    .wcu-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .wcu-card h3 { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 0.5rem; }
+    .wcu-card p { font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6; }
+    .icon-blue { background: #E6F1FB; }
+    .icon-teal { background: #E1F5EE; }
+    .icon-amber { background: #FAEEDA; }
+    .icon-rose { background: #FBEAF0; }
+  </style>
+
+  <div class="wcu-section" dir="rtl">
+    <div class="wcu-header">
+      <h2 id="why-heading">لماذا تختارنا؟</h2>
+      <p>نلتزم بتقديم تجربة تسوق موثوقة واحترافية لكل عميل</p>
+    </div>
+    <div class="wcu-grid">
+
+      <div class="wcu-card">
+        <div class="wcu-icon icon-blue">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3>جودة مضمونة</h3>
+        <p>تخضع جميع منتجاتنا لفحص دقيق قبل الشحن لضمان رضاكم التام</p>
+      </div>
+
+      <div class="wcu-card">
+        <div class="wcu-icon icon-teal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13" rx="2"/>
+            <path d="M16 8h4l3 5v3h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/>
+            <circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+        </div>
+        <h3>توصيل سريع</h3>
+        <p>نوصل إلى جميع ولايات الجزائر خلال 3 إلى 5 أيام عمل</p>
+      </div>
+
+      <div class="wcu-card">
+        <div class="wcu-icon icon-amber">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#854F0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <path d="M2 10h20"/>
+          </svg>
+        </div>
+        <h3>الدفع عند الاستلام</h3>
+        <p>لا تُسدَّد أي مبالغ مسبقاً — ادفع فقط عند استلام طلبك والتحقق منه</p>
+      </div>
+
+      <div class="wcu-card">
+        <div class="wcu-icon icon-rose">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#993556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="1 4 1 10 7 10"/>
+            <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
+          </svg>
+        </div>
+        <h3>ضمان الإرجاع</h3>
+        <p>في حال عدم الرضا، نكفل لكم إرجاع المنتج أو استبداله بكل يسر</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
+    <!-- Signature -->
+    <div class="footer-signature">
+      Made with <span style="color: #f43f5e">❤</span> by
+      <span class="brand-name">Elfamila</span>
+    </div>
+
     <div class="success-overlay" id="success-overlay">
       <div class="success-card">
         <div class="success-icon">
@@ -248,7 +356,7 @@
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
-        <h2 class="success-title">تم تسجيل طلبك بنجاح! 🎉</h2>
+        <h2 class="success-title">تم تسجيل طلبك بنجاح!</h2>
         <p class="success-msg">
           شكراً لك على ثقتك بنا.<br />سيتصل بك أحد موظفينا قريباً لتأكيد الطلب
           والتنسيق معك.
@@ -259,13 +367,6 @@
       </div>
     </div>
 
-    <!-- Signature -->
-    <div class="footer-signature">
-      Made with <span style="color: red">❤</span> by
-      <span class="brand-name">Elfamila</span>
-    </div>
-
-    <script src="config/product.js"></script>
     <script src="config/store.js"></script>
     <script src="config/wilayas.js"></script>
     <script src="js/render.js"></script>

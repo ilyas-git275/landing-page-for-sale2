@@ -34,11 +34,36 @@ function getDeliveryCost() {
   return type === "1" ? WILAYAS[wid].bureauCost : WILAYAS[wid].homeCost;
 }
 
+// ── Offer selection ───────────────────────────────────────────
+
+function selectOffer(index) {
+  const offer = PRODUCT.offers && PRODUCT.offers[index];
+  if (!offer) return;
+  const input = document.getElementById("quantity");
+  input.value = offer.quantity;
+  // Trigger updateSummary which will also handle card highlighting
+  updateSummary();
+}
+
 // ── Order summary ─────────────────────────────────────────────
 
 function updateSummary() {
   const qty = parseInt(document.getElementById("quantity").value) || 1;
-  const prod = PRODUCT.price * qty;
+
+  // Bundle logic: find matching offer or fallback to base price * qty
+  const matchingOffer =
+    PRODUCT.offers && PRODUCT.offers.find((o) => o.quantity === qty);
+  const prod = matchingOffer ? matchingOffer.price : PRODUCT.price * qty;
+
+  // Sync offer cards UI (highlight card if current qty matches)
+  document.querySelectorAll(".offer-card").forEach((card) => {
+    const idx = parseInt(card.getAttribute("data-index"));
+    const offer = PRODUCT.offers && PRODUCT.offers[idx];
+    if (offer) {
+      card.classList.toggle("is-selected", offer.quantity === qty);
+    }
+  });
+
   const del = getDeliveryCost();
   const wid = document.getElementById("wilaya").value;
   const total = prod + (wid && getDeliveryType() ? del : 0);
@@ -236,7 +261,7 @@ function closeSuccess() {
 // ── Event listeners ───────────────────────────────────────────
 
 document.addEventListener("DOMContentLoaded", async function () {
-  if (typeof WILAYAS_READY?.then === "function") {
+  if (typeof WILAYAS_READY !== "undefined" && WILAYAS_READY?.then) {
     await WILAYAS_READY;
   }
   document.getElementById("wilaya").addEventListener("change", onWilayaChange);

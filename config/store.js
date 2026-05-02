@@ -11,10 +11,10 @@ const STORE = {
   // ── Logo ───────────────────────────────────────────────────
   // Use a URL or a relative path like "assets/logo.png"
   // Set logoImage to null to show text logo instead
-  logoImage: "media_market_logo.jpg",
+  logoImage: "logo_eulma.jpg",
   logoAlt: "شعار المتجر",
-  logoText: "Layan Store", // shown if image fails or logoImage is null
-  logoTagline: "التسوق الذكي",
+  logoText: "El Eulma Store", // shown if image fails or logoImage is null
+  logoTagline: "",
 
   // ── Promo banner (top strip) ───────────────────────────────
   // Each item appears separated by a divider — set to [] to hide banner

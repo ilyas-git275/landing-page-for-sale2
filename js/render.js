@@ -213,14 +213,48 @@ function renderTrustStrip() {
     .join("");
 }
 
+/* ── Render offers ── */
+function renderOffers() {
+  const container = document.getElementById("offers-container");
+  if (!container || !PRODUCT.offers || PRODUCT.offers.length === 0) return;
+
+  container.innerHTML = PRODUCT.offers
+    .map(
+      (offer, index) => `
+    <div class="offer-card ${offer.isBest ? "is-selected" : ""}" 
+         onclick="selectOffer(${index})" 
+         data-index="${index}">
+      ${offer.isBest ? `<span class="offer-badge">الأكثر طلباً</span>` : ""}
+      <div class="offer-info">
+        <span class="offer-label">${offer.label}</span>
+        <span class="offer-price">${offer.price.toLocaleString("ar-DZ")} ${PRODUCT.currency}</span>
+      </div>
+      <div class="offer-check"></div>
+    </div>
+  `,
+    )
+    .join("");
+
+  // Set initial state from best offer
+  const bestIndex = PRODUCT.offers.findIndex((o) => o.isBest);
+  const initialIndex = bestIndex !== -1 ? bestIndex : 0;
+  const initialOffer = PRODUCT.offers[initialIndex];
+
+  if (initialOffer) {
+    const qtyInput = document.getElementById("quantity");
+    if (qtyInput) qtyInput.value = initialOffer.quantity;
+  }
+}
+
 /* ── Boot ── */
 document.addEventListener("DOMContentLoaded", async () => {
-  if (typeof WILAYAS_READY?.then === "function") {
+  if (typeof WILAYAS_READY !== "undefined" && WILAYAS_READY?.then) {
     await WILAYAS_READY;
   }
   renderNavbar();
   renderBanner();
   renderProduct();
+  renderOffers();
   renderWilayas();
   renderTrustStrip();
 });
