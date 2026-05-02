@@ -16,7 +16,7 @@ const PRODUCT = {
 
   // ── Pricing ────────────────────────────────────────────────
   price: 1750, // current price in DZD
-  oldPrice: 3000, // original price — set to null to hide
+  oldPrice: 2500, // original price — set to null to hide
   currency: "دج",
 
   // ── Offers ─────────────────────────────────────────────────
@@ -38,7 +38,7 @@ const PRODUCT = {
 
   // ── Badge on image ─────────────────────────────────────────
   // Set to null to hide the badge
-  badge: "-20% خصم",
+  badge: "-29% خصم",
 
   // ── Ratings ────────────────────────────────────────────────
   stars: 5, // 1–5
