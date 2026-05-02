@@ -267,17 +267,17 @@
   <style>
     .wcu-section { padding: 2.5rem 0; }
     .wcu-header { text-align: center; margin-bottom: 2rem; }
-    .wcu-header h2 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 0.5rem; }
-    .wcu-header p { font-size: 15px; color: var(--color-text-secondary); margin: 0; }
+    .wcu-header h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 0 0 0.5rem; }
+    .wcu-header p { font-size: 15px; color: var(--text-muted); margin: 0; }
     .wcu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
-    .wcu-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; }
+    .wcu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; box-shadow: var(--shadow-sm); }
     .wcu-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
-    .wcu-card h3 { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 0.5rem; }
-    .wcu-card p { font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.6; }
-    .icon-blue { background: #E6F1FB; }
-    .icon-teal { background: #E1F5EE; }
-    .icon-amber { background: #FAEEDA; }
-    .icon-rose { background: #FBEAF0; }
+    .wcu-card h3 { font-size: 15px; font-weight: 800; color: var(--text); margin: 0 0 0.5rem; }
+    .wcu-card p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.6; }
+    .icon-blue { background: var(--primary-light); }
+    .icon-teal { background: var(--accent-light); }
+    .icon-amber { background: var(--surface-2); }
+    .icon-rose { background: var(--danger-light); }
   </style>
 
   <div class="wcu-section" dir="rtl">
@@ -289,7 +289,7 @@
 
       <div class="wcu-card">
         <div class="wcu-icon icon-blue">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#185FA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
         </div>
@@ -299,7 +299,7 @@
 
       <div class="wcu-card">
         <div class="wcu-icon icon-teal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F6E56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="1" y="3" width="15" height="13" rx="2"/>
             <path d="M16 8h4l3 5v3h-7V8z"/>
             <circle cx="5.5" cy="18.5" r="2.5"/>
@@ -312,7 +312,7 @@
 
       <div class="wcu-card">
         <div class="wcu-icon icon-amber">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#854F0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
             <path d="M2 10h20"/>
           </svg>
@@ -323,7 +323,7 @@
 
       <div class="wcu-card">
         <div class="wcu-icon icon-rose">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#993556" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="1 4 1 10 7 10"/>
             <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
           </svg>
@@ -338,7 +338,7 @@
   
     <!-- Signature -->
     <div class="footer-signature">
-      Made with <span style="color: #f43f5e">❤</span> by
+      Made with <span style="color: var(--primary)">❤</span> by
       <span class="brand-name">Elfamila</span>
     </div>
 
