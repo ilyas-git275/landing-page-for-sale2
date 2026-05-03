@@ -51,7 +51,7 @@ const PRODUCT = {
   // ── Google Apps Script endpoint ────────────────────────────
   // Replace with your own Google Sheets webhook URL
   googleScriptURL:
-    "https://script.google.com/macros/s/AKfycbzxybk82bIKx8IQJia9Rdl4fSmKt_kd3jLmZPJkvKxd7Lk0x2R8UaIIl9og3lH6wylH/exec",
+    "https://script.google.com/macros/s/AKfycby5chnqQZC1yEipLcsVw6arlL99xeOvmuUwX9vVTxZn1itzUAX78e0v9AcU2dtYjyN6/exec",
 
   // ── Tracking ───────────────────────────────────────────────
   facebookPixelId: "YOUR_PIXEL_ID_HERE", // Replace with client's Pixel ID

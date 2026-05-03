@@ -1,4 +1,4 @@
-<!Doctype html>
+<!doctype html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
@@ -26,21 +26,37 @@
          Facebook Pixel Base Code
          ═══════════════════════════════════════════════════════════ -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
 
       // ── Initializes only if a valid ID is provided in config/product.js ──
-      const PIXEL_ID = typeof PRODUCT !== 'undefined' ? PRODUCT.facebookPixelId : null;
-      
+      const PIXEL_ID =
+        typeof PRODUCT !== "undefined" ? PRODUCT.facebookPixelId : null;
+
       if (PIXEL_ID && PIXEL_ID !== "YOUR_PIXEL_ID_HERE") {
-        fbq('init', PIXEL_ID);
-        fbq('track', 'PageView');
+        fbq("init", PIXEL_ID);
+        fbq("track", "PageView");
       }
     </script>
     <noscript>
@@ -48,8 +64,12 @@
     </noscript>
     <script>
       // Dynamically add noscript image if ID is valid
-      if (typeof PIXEL_ID !== 'undefined' && PIXEL_ID && PIXEL_ID !== "YOUR_PIXEL_ID_HERE") {
-        document.getElementById('pixel-noscript').innerHTML = 
+      if (
+        typeof PIXEL_ID !== "undefined" &&
+        PIXEL_ID &&
+        PIXEL_ID !== "YOUR_PIXEL_ID_HERE"
+      ) {
+        document.getElementById("pixel-noscript").innerHTML =
           `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1"/>`;
       }
     </script>
@@ -140,6 +160,15 @@
                 >يرجى اختيار البلدية</span
               >
             </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 20px">
+            <label for="address">العنوان الكامل (اختياري)</label>
+            <input
+              type="text"
+              id="address"
+              placeholder="مثال: حي السلام، عمارة رقم 5، الطابق 2"
+              autocomplete="street-address"
+            />
           </div>
           <div class="form-group" style="margin-bottom: 20px">
             <label>اختر العرض المناسب</label>
@@ -246,12 +275,10 @@
         </div>
       </div>
     </div>
-  <!-- ═══ PRODUCT GALLERY ═══ -->
+    <!-- ═══ PRODUCT GALLERY ═══ -->
     <section class="gallery-section" aria-labelledby="gallery-heading">
       <div class="gallery-card">
-        <div class="gallery-header">
-          
-        </div>
+        <div class="gallery-header"></div>
         <div class="gallery-grid">
           <div class="gallery-img-wrap">
             <img src="product2.png" alt="صورة المنتج 1" loading="lazy" />
@@ -262,80 +289,167 @@
         </div>
       </div>
     </section>
-   <!-- ═══ WHY CHOOSE US ═══ -->
-<section class="why-choose-section" aria-labelledby="why-heading">
-  <style>
-    .wcu-section { padding: 2.5rem 0; }
-    .wcu-header { text-align: center; margin-bottom: 2rem; }
-    .wcu-header h2 { font-size: 22px; font-weight: 800; color: var(--text); margin: 0 0 0.5rem; }
-    .wcu-header p { font-size: 15px; color: var(--text-muted); margin: 0; }
-    .wcu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
-    .wcu-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; box-shadow: var(--shadow-sm); }
-    .wcu-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
-    .wcu-card h3 { font-size: 15px; font-weight: 800; color: var(--text); margin: 0 0 0.5rem; }
-    .wcu-card p { font-size: 13px; color: var(--text-muted); margin: 0; line-height: 1.6; }
-    .icon-blue { background: var(--primary-light); }
-    .icon-teal { background: var(--accent-light); }
-    .icon-amber { background: var(--surface-2); }
-    .icon-rose { background: var(--danger-light); }
-  </style>
+    <!-- ═══ WHY CHOOSE US ═══ -->
+    <section class="why-choose-section" aria-labelledby="why-heading">
+      <style>
+        .wcu-section {
+          padding: 2.5rem 0;
+        }
+        .wcu-header {
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+        .wcu-header h2 {
+          font-size: 22px;
+          font-weight: 800;
+          color: var(--text);
+          margin: 0 0 0.5rem;
+        }
+        .wcu-header p {
+          font-size: 15px;
+          color: var(--text-muted);
+          margin: 0;
+        }
+        .wcu-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 16px;
+        }
+        .wcu-card {
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          padding: 1.25rem 1rem;
+          text-align: center;
+          box-shadow: var(--shadow-sm);
+        }
+        .wcu-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 1rem;
+        }
+        .wcu-card h3 {
+          font-size: 15px;
+          font-weight: 800;
+          color: var(--text);
+          margin: 0 0 0.5rem;
+        }
+        .wcu-card p {
+          font-size: 13px;
+          color: var(--text-muted);
+          margin: 0;
+          line-height: 1.6;
+        }
+        .icon-blue {
+          background: var(--primary-light);
+        }
+        .icon-teal {
+          background: var(--accent-light);
+        }
+        .icon-amber {
+          background: var(--surface-2);
+        }
+        .icon-rose {
+          background: var(--danger-light);
+        }
+      </style>
 
-  <div class="wcu-section" dir="rtl">
-    <div class="wcu-header">
-      <h2 id="why-heading">لماذا تختارنا؟</h2>
-      <p>نلتزم بتقديم تجربة تسوق موثوقة واحترافية لكل عميل</p>
-    </div>
-    <div class="wcu-grid">
-
-      <div class="wcu-card">
-        <div class="wcu-icon icon-blue">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"/>
-          </svg>
+      <div class="wcu-section" dir="rtl">
+        <div class="wcu-header">
+          <h2 id="why-heading">لماذا تختارنا؟</h2>
+          <p>نلتزم بتقديم تجربة تسوق موثوقة واحترافية لكل عميل</p>
         </div>
-        <h3>جودة مضمونة</h3>
-        <p>تخضع جميع منتجاتنا لفحص دقيق قبل الشحن لضمان رضاكم التام</p>
-      </div>
+        <div class="wcu-grid">
+          <div class="wcu-card">
+            <div class="wcu-icon icon-blue">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary-dark)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h3>جودة مضمونة</h3>
+            <p>تخضع جميع منتجاتنا لفحص دقيق قبل الشحن لضمان رضاكم التام</p>
+          </div>
 
-      <div class="wcu-card">
-        <div class="wcu-icon icon-teal">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="1" y="3" width="15" height="13" rx="2"/>
-            <path d="M16 8h4l3 5v3h-7V8z"/>
-            <circle cx="5.5" cy="18.5" r="2.5"/>
-            <circle cx="18.5" cy="18.5" r="2.5"/>
-          </svg>
+          <div class="wcu-card">
+            <div class="wcu-icon icon-teal">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="1" y="3" width="15" height="13" rx="2" />
+                <path d="M16 8h4l3 5v3h-7V8z" />
+                <circle cx="5.5" cy="18.5" r="2.5" />
+                <circle cx="18.5" cy="18.5" r="2.5" />
+              </svg>
+            </div>
+            <h3>توصيل سريع</h3>
+            <p>نوصل إلى جميع ولايات الجزائر خلال 3 إلى 5 أيام عمل</p>
+          </div>
+
+          <div class="wcu-card">
+            <div class="wcu-icon icon-amber">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--primary)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="5" width="20" height="14" rx="2" />
+                <path d="M2 10h20" />
+              </svg>
+            </div>
+            <h3>الدفع عند الاستلام</h3>
+            <p>
+              لا تُسدَّد أي مبالغ مسبقاً — ادفع فقط عند استلام طلبك والتحقق منه
+            </p>
+          </div>
+
+          <div class="wcu-card">
+            <div class="wcu-icon icon-rose">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--danger)"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 1 0 .49-4.5" />
+              </svg>
+            </div>
+            <h3>ضمان الإرجاع</h3>
+            <p>في حال عدم الرضا، نكفل لكم إرجاع المنتج أو استبداله بكل يسر</p>
+          </div>
         </div>
-        <h3>توصيل سريع</h3>
-        <p>نوصل إلى جميع ولايات الجزائر خلال 3 إلى 5 أيام عمل</p>
       </div>
+    </section>
 
-      <div class="wcu-card">
-        <div class="wcu-icon icon-amber">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="5" width="20" height="14" rx="2"/>
-            <path d="M2 10h20"/>
-          </svg>
-        </div>
-        <h3>الدفع عند الاستلام</h3>
-        <p>لا تُسدَّد أي مبالغ مسبقاً — ادفع فقط عند استلام طلبك والتحقق منه</p>
-      </div>
-
-      <div class="wcu-card">
-        <div class="wcu-icon icon-rose">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--danger)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="1 4 1 10 7 10"/>
-            <path d="M3.51 15a9 9 0 1 0 .49-4.5"/>
-          </svg>
-        </div>
-        <h3>ضمان الإرجاع</h3>
-        <p>في حال عدم الرضا، نكفل لكم إرجاع المنتج أو استبداله بكل يسر</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-  
     <!-- Signature -->
     <div class="footer-signature">
       Made with <span style="color: var(--primary)">❤</span> by

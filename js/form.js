@@ -191,6 +191,7 @@ function submitForm() {
   fd.append("phone", document.getElementById("phone").value.trim());
   fd.append("wilaya", wilayaEl.options[wilayaEl.selectedIndex].text);
   fd.append("commune", document.getElementById("commune").value);
+  fd.append("address", document.getElementById("address").value.trim());
   fd.append("product", PRODUCT.name);
 
   fd.append("quantity", document.getElementById("quantity").value);
@@ -235,7 +236,7 @@ function submitForm() {
 }
 
 function resetForm() {
-  ["name", "phone"].forEach((id) => (document.getElementById(id).value = ""));
+  ["name", "phone", "address"].forEach((id) => (document.getElementById(id).value = ""));
   document.getElementById("quantity").value = 1;
   document.getElementById("wilaya").value = "";
   document.getElementById("commune").innerHTML =
